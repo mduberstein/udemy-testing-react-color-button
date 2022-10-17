@@ -4,20 +4,26 @@ import "./App.css";
 
 function App() {
   const [buttonColor, setButtonColor] = useState("red");
+  const [disabled, setDisabled] = useState(false);
+
   const newButtonColor = buttonColor === "red" ? "blue" : "red";
 
   return (
-
     <div>
       <button
         onClick={() => setButtonColor(newButtonColor)}
         style={{ backgroundColor: buttonColor }}
+        disabled={disabled}
       >
         Change to {newButtonColor}
       </button>
-      <input type="checkbox" />
+      <input
+        id="disable-button-checkbox"
+        type="checkbox"
+        onChange={(e) => setDisabled(e.target.checked)}
+      />
     </div>
-  //#region npx create-react-app generated Code
+    //#region npx create-react-app generated Code
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -34,7 +40,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-  //#endregion
+    //#endregion
   );
 }
 
