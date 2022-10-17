@@ -24,7 +24,7 @@ test('intitial conditions', ()=> {
   render(<App />);
 
   // check that the button starts out enabled
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'});
+  const colorButton = screen.getByRole('button', {name:'Change to blue'});
   expect(colorButton).toBeEnabled();
   // check that the checkbox starts out unchecked
   const checkbox = screen.getByRole('checkbox')
@@ -40,6 +40,29 @@ test('checkbox disables button on first click adn enables on second click', () =
   expect(colorButton).toBeDisabled();
   fireEvent.click(checkbox);
   expect(colorButton).toBeEnabled();
+});
+
+test('when disabled button turns gray and reverts to the color it had when enabled', ()=>{
+  render(<App />);
+
+  const colorButton = screen.getByRole('button', {name: 'Change to blue'});
+  const checkbox = screen.getByRole('checkbox', {name: 'Disable button'});
+
+  // disable button
+  fireEvent.click(checkbox);
+  expect(colorButton).toHaveStyle({backgroundColor: 'gray'});
+  // re-enable button
+  fireEvent.click(checkbox);
+  expect(colorButton).toHaveStyle({'background-color': 'red'});
+
+  // change button to blue
+  fireEvent.click(colorButton);
+  // disable button
+  fireEvent.click(checkbox);
+  expect(colorButton).toHaveStyle('background-color: gray');
+  // reenable button
+  fireEvent.click(checkbox);
+  expect(colorButton).toHaveStyle({backgroundColor: 'blue'});
 });
 
 //#region Experiments before Clip 14
