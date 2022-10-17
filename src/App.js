@@ -22,6 +22,7 @@ function App() {
         type="checkbox"
         onChange={(e) => setDisabled(e.target.checked)}
       />
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
     //#region npx create-react-app generated Code
     // <div className="App">
