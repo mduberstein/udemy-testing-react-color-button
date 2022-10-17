@@ -1,11 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+// import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  return ( 
+  const [buttonColor, setButtonColor] = useState("red");
+  const newButtonColor = buttonColor === "red" ? "blue" : "red";
+
+  return (
+
     <div>
-      <button style={{backgroundColor: 'red'}}>Change to blue</button>
+      <button
+        onClick={() => setButtonColor(newButtonColor)}
+        style={{ backgroundColor: buttonColor }}
+      >
+        Change to {newButtonColor}
+      </button>
     </div>
+  //#region npx create-react-app generated Code
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -22,6 +33,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
+  //#endregion
   );
 }
 

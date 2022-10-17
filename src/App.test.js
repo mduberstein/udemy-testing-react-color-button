@@ -20,6 +20,7 @@ test('button has correct initial color and updates when clicked', () => {
   expect(colorButton).toHaveTextContent('Change to red');
 });
 
+//#region Experiments before Clip 14
 // test('button turns blue when clicked', () => {
 //   render(<App />);
 //   const colorButton = screen.getByRole('button', {name:'Change to blue' });
@@ -32,4 +33,5 @@ test('button has correct initial color and updates when clicked', () => {
 //   const linkElement = screen.getByRole('link', {name: /learn react/i});
 //   expect(linkElement).toBeInTheDocument();
 // });
+//#endregion
 
