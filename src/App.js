@@ -15,6 +15,7 @@ function App() {
       >
         Change to {newButtonColor}
       </button>
+      <input type="checkbox" />
     </div>
   //#region npx create-react-app generated Code
     // <div className="App">
